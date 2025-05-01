@@ -1,3 +1,6 @@
+# 각 지역별로 관광 데이터 정보를 가져오기 위한 코드.
+
+
 import os
 import requests
 import csv
