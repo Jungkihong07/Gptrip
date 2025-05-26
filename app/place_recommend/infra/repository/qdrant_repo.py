@@ -16,7 +16,7 @@ class QdrantRepository(IVectorRepository):
         self.collection = collection_name
 
     def search(self, vector: list[float], top_k: int = 5) -> list[Place]:
-        results = self.client.search(
+        results = self.client.query_points(
             collection_name=self.collection,
             query_vector=vector,
             limit=top_k,
