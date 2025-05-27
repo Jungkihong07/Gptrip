@@ -1,6 +1,8 @@
 # qdrant repo를 만들때까지 보류
+from place
+
 class RecommendService:
-    def __init__(self, text_dim: int = 384, image_dim: int = 384, alpha: float = 0.5):
+    def __init__(self, vector_repo:):
         """
         :param text_dim: 텍스트 임베딩 차원 (기본값: 384)
         :param image_dim: 이미지 임베딩 차원 (기본값: 384, CLIP에 맞춤)

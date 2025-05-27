@@ -1,6 +1,6 @@
-from place_recommend.domain.repository.qdrant_repo import IVectorRepository
+from place.domain.repository.qdrant_repo import IVectorRepository
 from qdrant_client import QdrantClient
-from place_recommend.domain.place import Place
+from place.domain.place import Place
 from typing import Literal
 from config import get_settings
 

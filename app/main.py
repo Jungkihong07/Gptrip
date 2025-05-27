@@ -1,6 +1,6 @@
 # app/main.py
 from fastapi import FastAPI
-from place_recommend.interface.controller.recommend_controller import (
+from place.interface.controller.recommend_controller import (
     router as recommend_router,
 )
 import uvicorn

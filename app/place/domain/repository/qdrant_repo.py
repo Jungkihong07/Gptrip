@@ -1,5 +1,5 @@
 from abc import ABCMeta, abstractmethod
-from place_recommend.domain.place import Place
+from place.domain.place import Place
 from typing import Literal
 
 

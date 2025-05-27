@@ -1,4 +1,4 @@
-from app.place_recommend.infra.repository.qdrant_repo import QdrantRepository
+from app.place.infra.repository.qdrant_repo import QdrantRepository
 
 
 # 3. 테스트 염두 로직 (이후 pytest 또는 unittest에서 사용 가능)
