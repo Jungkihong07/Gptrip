@@ -12,4 +12,4 @@ class Place(BaseModel):
     mapx: float
     mapy: float
     image: Optional[str] = None
-    summary: str
+    emotional_summary: str

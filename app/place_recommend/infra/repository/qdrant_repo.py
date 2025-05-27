@@ -1,7 +1,7 @@
-from domain.repository.qdrant_repo import IVectorRepository
+from place_recommend.domain.repository.qdrant_repo import IVectorRepository
 from qdrant_client import QdrantClient
-from domain.place import Place
-
+from place_recommend.domain.place import Place
+from typing import Literal
 from config import get_settings
 
 settings = get_settings()
@@ -15,11 +15,17 @@ class QdrantRepository(IVectorRepository):
         )
         self.collection = collection_name
 
-    def search(self, vector: list[float], top_k: int = 5) -> list[Place]:
+    def search(
+        self,
+        vector: list[float],
+        vector_name: Literal["text_vector", "image_vector"],
+        top_k: int = 5,
+    ) -> list[Place]:
         results = self.client.query_points(
             collection_name=self.collection,
-            query_vector=vector,
+            query=vector,
+            using=vector_name,
             limit=top_k,
             with_payload=True,
         )
-        return [Place(**point.payload) for point in results]
+        return [Place(**point.payload) for point in results.points]
