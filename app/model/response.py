@@ -2,12 +2,14 @@ from pydantic import BaseModel
 from typing import Optional
 
 
-class RecommendModel(BaseModel):
+class PlaceResponse(BaseModel):
     title: str
-    tel: Optional[str]
-    addr1: Optional[str]
-    addr2: Optional[str]
+    tel: Optional[str] = None
+    addr1: Optional[str] = None
+    addr2: Optional[str] = None
+    contentid: int
+    region: str
     mapx: float
     mapy: float
-    image: str
-    summary: str
+    image: Optional[str] = None
+    emotional_summary: str

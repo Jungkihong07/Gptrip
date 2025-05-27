@@ -6,6 +6,7 @@ from fastapi import HTTPException
 from place.infra.embedder.text_embedder import TextEmbedder
 from place.infra.embedder.image_embedder import ImageEmbedder
 from utills.fuse_results import fuse_results
+from dependency_injector.wiring import inject
 
 
 class RecommendService:

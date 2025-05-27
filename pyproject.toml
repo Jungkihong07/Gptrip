@@ -21,6 +21,7 @@ dependency-injector = "^4.46.0"
 ftfy = "^6.3.1"
 regex = "^2024.11.6"
 clip = {git = "https://github.com/openai/CLIP.git"}
+python-multipart = "^0.0.20"
 
 
 [tool.poetry.group.dev.dependencies]

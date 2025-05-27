@@ -1,6 +1,6 @@
 from collections import defaultdict
 from typing import List, Tuple
-from app.place.domain.place import Place
+from place.domain.place import Place
 
 
 def fuse_results(
