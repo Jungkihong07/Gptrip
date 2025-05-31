@@ -9,7 +9,7 @@ from containers import Container
 router = APIRouter(prefix="/recommend", tags=["Recommend API"])
 
 
-@router.post("/recommend", response_model=list[PlaceResponse])
+@router.post("/search", response_model=list[PlaceResponse])
 @inject
 async def recommend_place(
     prompt: PromptModel = Depends(parse_form),
