@@ -26,7 +26,6 @@ __pycache__/
 *.pyc
 .venv/
 .cache/
-.env
 models/
 data/
 .git/

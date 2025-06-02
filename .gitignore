@@ -1,3 +1,6 @@
+Dockerfile
+.dockerignore
+
 .venv/
 __pycache__/
 *.pyc
@@ -5,3 +8,5 @@ __pycache__/
 .vscode/
 data
 .pytest_cache
+
+
