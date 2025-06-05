@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from fastapi import Form
+from typing import Optional
 
 
 class PromptModel(BaseModel):
@@ -10,5 +11,7 @@ class PromptModel(BaseModel):
 """ Form에서 받아서 PromptModel로 변환하는 의존성 주입 함수 """
 
 
-def parse_form(text: str = Form(...)) -> PromptModel:
+async def parse_form(text: Optional[str] = Form(None)) -> Optional[PromptModel]:
+    if text is None:
+        return None
     return PromptModel(text=text)

@@ -12,7 +12,7 @@ router = APIRouter(prefix="/recommend", tags=["Recommend API"])
 @router.post("/search", response_model=list[PlaceResponse])
 @inject
 async def recommend_place(
-    prompt: PromptModel = Depends(parse_form),
+    prompt: Optional[PromptModel] = Depends(parse_form, use_cache=False),
     image: Optional[UploadFile] = File(None),
     recommend_service: RecommendService = Depends(Provide[Container.recommend_service]),
 ):
