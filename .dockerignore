@@ -1,5 +1,6 @@
 # 가상환경, 편집기 설정
 .venv/
+.venv*
 .vscode/
 .pytest_cache/
 __pycache__/
