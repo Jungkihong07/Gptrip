@@ -50,7 +50,7 @@ desired_columns = [
     "mapx",
     "mapy",
     "contentid",
-    "firstimage",
+    "image",
     "modifiedtime",
     "emotional_summary",
 ]
@@ -83,20 +83,32 @@ for i, row in df.iterrows():
         )
     )
 
+
+# 🔹 먼저 image_url 정보를 불러와서 dict로 구성
+url_df = pd.read_csv("data/incheon_image_url.csv")  # 컬럼: filename, image_url
+image_url_map = dict(zip(url_df["filename"], url_df["image_url"]))
+
+
 # ✅ 9. 이미지 벡터 포인트 생성
 image_points = []
 for i, (vec, filename) in enumerate(zip(image_vectors, image_filenames)):
-    filename = filename.replace(".jpg", "")
-    content_id, img_index = filename.split("_")
+    filename_base = filename.replace(".jpg", "")
+    content_id, img_index = filename_base.split("_")
     match = df[df["contentid"] == content_id]
+
     if match.empty:
         print(f"{filename}에 해당하는 장소가 없습니다.")
         continue
+
     row = match.iloc[0]
     payload = clean_payload(row)
     payload["type"] = "image"
-    payload["image_path"] = filename + ".jpg"  # 이미지 파일명도 포함
     payload["region"] = "incheon"
+
+    # 🔹 filename이 일치하는 경우 image_url 추가
+    if filename in image_url_map:
+        payload["firstimage"] = image_url_map[filename]
+
     image_points.append(
         PointStruct(
             id=int(content_id) * 100 + int(img_index),

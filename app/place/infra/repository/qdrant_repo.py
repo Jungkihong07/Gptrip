@@ -3,6 +3,7 @@ from qdrant_client import QdrantClient
 from place.domain.place import Place
 from typing import Literal
 from config import get_settings
+from utills.db_utils import map_place
 
 settings = get_settings()
 
@@ -28,4 +29,4 @@ class QdrantRepository(IVectorRepository):
             limit=top_k,
             with_payload=True,
         )
-        return [Place(**point.payload) for point in results.points]
+        return [map_place(point.payload) for point in results.points]
