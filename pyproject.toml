@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Photo and LLM based travel recommendation platform backend"
 authors = ["Jungkihong07 <hnn07185@gmail.com>"]
 readme = "README.md"
+package-mode = false  # ✅ 여기가 핵심
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -11,11 +12,21 @@ fastapi = "^0.115.12"
 uvicorn = {extras = ["standard"], version = "^0.34.0"}
 python-dotenv = "^1.1.0"
 requests = "^2.32.3"
+sentence-transformers = "^4.1.0"
+transformers = "^4.51.3"
+qdrant-client = "^1.14.2"
+pydantic = "^2.11.5"
+pydantic-settings = "^2.9.1"
+dependency-injector = "^4.46.0"
+clip = {git = "https://github.com/openai/CLIP.git"}
+python-multipart = "^0.0.20"
+poetry-plugin-export = "^1.9.0"
 
 
 [tool.poetry.group.dev.dependencies]
 black = "^25.1.0"
 pytest = "^8.3.5"
+ipykernel = "^6.29.5"
 
 [build-system]
 requires = ["poetry-core"]

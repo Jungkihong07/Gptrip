@@ -1,0 +1,32 @@
+# 가상환경, 편집기 설정
+.venv/
+.venv*
+.vscode/
+.pytest_cache/
+__pycache__/
+
+# 개발 도구 디렉토리
+data_tools/
+embedding_tools/
+
+# 대용량 데이터 및 캐시
+data/
+cache/
+*.npy
+*.pkl
+*.pt
+*.index
+*.bin
+
+# 기타 임시/로그 파일 (선택)
+*.log
+.DS_Store
+
+
+__pycache__/
+*.pyc
+.venv/
+.cache/
+models/
+data/
+.git/
